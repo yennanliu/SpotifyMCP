@@ -1,0 +1,24 @@
+Create an MCP-compliant HTTP server for Claude that wraps the Spotify Web API.
+
+Requirements:
+1. Language: Node.js with Express
+2. MCP compatibility:
+   - Serve a `.well-known/ai-plugin.json` (or equivalent manifest)
+   - Include at least one tool endpoint: `/tools/search`
+   - Tool should accept `{ "query": "some search string" }`
+   - Return 5 matching tracks using Spotify's `search` endpoint (`type=track`)
+3. OAuth:
+   - Use Spotify's Authorization Code Flow
+   - After login, store the access token in memory
+   - Expose a `/login` endpoint to initiate auth, and `/callback` to receive the token
+4. Config:
+   - Load environment variables from a `.env` file:
+     - `SPOTIFY_CLIENT_ID`
+     - `SPOTIFY_CLIENT_SECRET`
+     - `REDIRECT_URI`
+5. Output:
+   - Full working Node.js project (server.js)
+   - Example `.env` file
+   - Sample response format for the MCP `/tools/search` tool
+6. Claude Integration:
+   - Include a sample `claude_desktop_config.json` snippet that runs the server with the correct env vars
